@@ -34,14 +34,16 @@ static File folder = new File(inputFolder);
         for(int k=0; k<listOfFiles.size();k++){
             counter=0;
         String csvFile = listOfFiles.get(k);
+        int k2=csvFile.lastIndexOf("\\");
         int k1=csvFile.indexOf(".csv")-6;
         String t1=csvFile.substring(k1,k1+10);
         String name=t1.substring(0, t1.indexOf("."));
+        String name1=csvFile.substring(k2+1, csvFile.indexOf("."));
         String line = "";
         String cvsSplitBy = ",";
    PrintWriter out = null;
    String outCSF1="out";
-   try{out=new PrintWriter(outCSF1+t1);}
+   try{out=new PrintWriter(outCSF1+name1+".csv");}
    catch(Exception ex){
        String test=ex.getMessage();
    }
